@@ -13,7 +13,7 @@ msg <- function(x, startup = FALSE) {
 #' @param include_self Include tidyverse in the list?
 #' @export
 #' @examples
-#' tidyverse_packages()
+#' #tidyverse_packages()
 modelER_packages <- function(include_self = TRUE) {
   raw <- utils::packageDescription("modelER")$Imports
   imports <- strsplit(raw, ",")[[1]]

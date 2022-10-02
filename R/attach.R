@@ -23,7 +23,7 @@ modelER_attach <- function() {
   msg(
     cli::rule(
       left = crayon::bold("Attaching packages"),
-      right = paste0("modelER ", package_version("modelER"))
+      right = paste0("modelER ", packageVersion("modelER"))
     ),
     startup = TRUE
   )

@@ -13,5 +13,5 @@ modelER_packages(include_self = TRUE)
 List all packages in the tidyverse
 }
 \examples{
-tidyverse_packages()
+#tidyverse_packages()
 }
