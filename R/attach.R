@@ -15,7 +15,7 @@ same_library <- function(pkg) {
   )
 }
 
-tidyverse_attach <- function() {
+modelER_attach <- function() {
   to_load <- core_unloaded()
   if (length(to_load) == 0)
     return(invisible())
@@ -23,7 +23,7 @@ tidyverse_attach <- function() {
   msg(
     cli::rule(
       left = crayon::bold("Attaching packages"),
-      right = paste0("tidyverse ", package_version("tidyverse"))
+      right = paste0("modelER ", package_version("modelER"))
     ),
     startup = TRUE
   )
