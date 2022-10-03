@@ -1,4 +1,4 @@
-core <- c('riskyData', 'hydrolER', 'objectivER', 'hydraulER')
+core <- c('riskyData', 'hydrolER', 'objectivER', 'hydraulER', 'mappER', 'cleanER', 'fastER')
 
 core_unloaded <- function() {
   search <- paste0("package:", core)
