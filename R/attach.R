@@ -1,3 +1,4 @@
+# List core packages for modellER
 core <- c('riskyData', 'hydrolER', 'objectivER', 'hydraulER', 'mappER', 'cleanER', 'fastER')
 
 core_unloaded <- function() {
