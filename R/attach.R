@@ -1,6 +1,7 @@
 # List core packages for modellER
 core <- c('riskyData', 'hydrolER', 'objectivER', 'hydraulER', 'mappER', 'cleanER', 'fastER')
 
+# Find unloaded packages
 core_unloaded <- function() {
   search <- paste0("package:", core)
   core[!search %in% search()]
