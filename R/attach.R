@@ -15,7 +15,7 @@ same_library <- function(pkg) {
   )
 }
 
-modelER_attach <- function() {
+modellER_attach <- function() {
   to_load <- core_unloaded()
   if (length(to_load) == 0)
     return(invisible())
@@ -23,7 +23,7 @@ modelER_attach <- function() {
   msg(
     cli::rule(
       left = crayon::bold("Attaching packages"),
-      right = paste0("modelER ", packageVersion("modelER"))
+      right = paste0("modellER ", packageVersion("modellER"))
     ),
     startup = TRUE
   )

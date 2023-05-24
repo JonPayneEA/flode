@@ -1,6 +1,6 @@
 msg <- function(x, startup = FALSE) {
   if (startup) {
-    if (!isTRUE(getOption("modelER.quiet"))) {
+    if (!isTRUE(getOption("modellER.quiet"))) {
       rlang::inform(x, class = "packageStartupMessage")
     }
   } else {
@@ -14,14 +14,14 @@ msg <- function(x, startup = FALSE) {
 #' @export
 #' @examples
 #' #tidyverse_packages()
-modelER_packages <- function(include_self = TRUE) {
-  raw <- utils::packageDescription("modelER")$Imports
+modellER_packages <- function(include_self = TRUE) {
+  raw <- utils::packageDescription("modellER")$Imports
   imports <- strsplit(raw, ",")[[1]]
   parsed <- gsub("^\\s+|\\s+$", "", imports)
   names <- vapply(strsplit(parsed, "\\s+"), "[[", 1, FUN.VALUE = character(1))
 
   if (include_self) {
-    names <- c(names, "modelER")
+    names <- c(names, "modellER")
   }
 
   names
