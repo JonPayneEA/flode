@@ -3,7 +3,7 @@
   if (length(needed) == 0)
     return()
 
-  modellER_attach()
+  flodeVerse_attach()
 
   # if (!"package:conflicted" %in% search()) {
   #   x <- tidyverse_conflicts()

@@ -1,4 +1,4 @@
-# List core packages for modellER
+# List core packages for flodeVerse
 core <- c('riskyData', 'hydrolER', 'objectivER', 'hydraulER', 'mappER', 'cleanER', 'fastER')
 
 
@@ -19,7 +19,7 @@ same_library <- function(pkg) {
 }
 
 
-modellER_attach <- function() {
+flodeVerse_attach <- function() {
   to_load <- core_unloaded()
   if (length(to_load) == 0)
     return(invisible())
@@ -27,7 +27,7 @@ modellER_attach <- function() {
   msg(
     cli::rule(
       left = crayon::bold("Attaching packages"),
-      right = paste0("modellER ", packageVersion("modellER"))
+      right = paste0("flodeVerse ", packageVersion("flodeVerse"))
     ),
     startup = TRUE
   )
