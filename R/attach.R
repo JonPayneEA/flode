@@ -1,4 +1,4 @@
-# List core packages for flodeVerse
+# List core packages for flode
 core <- c('riskyData', 'hydrolER', 'objectivER', 'hydraulER', 'mappER', 'cleanER', 'fastER')
 
 
@@ -19,7 +19,7 @@ same_library <- function(pkg) {
 }
 
 
-flodeVerse_attach <- function() {
+flode_attach <- function() {
   to_load <- core_unloaded()
   if (length(to_load) == 0)
     return(invisible())
@@ -27,7 +27,7 @@ flodeVerse_attach <- function() {
   msg(
     cli::rule(
       left = crayon::bold("Attaching packages"),
-      right = paste0("flodeVerse ", packageVersion("flodeVerse"))
+      right = paste0("flode ", packageVersion("flode"))
     ),
     startup = TRUE
   )
