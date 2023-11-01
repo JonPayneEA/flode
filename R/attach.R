@@ -1,5 +1,6 @@
 # List core packages for flode
-core <- c('riskyData', 'hydrolER', 'objectivER', 'hydraulER', 'mappER', 'cleanER', 'fastER')
+# core <- c('riskyData', 'hydrolER', 'objectivER', 'hydraulER', 'mappER', 'cleanER', 'fastER')
+core <- c('riskyData')
 
 
 core_unloaded <- function() {

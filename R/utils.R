@@ -8,13 +8,13 @@ msg <- function(x, startup = FALSE) {
   }
 }
 
-#' List all packages in the tidyverse
+#' List all packages in flode
 #'
-#' @param include_self Include tidyverse in the list?
+#' @param include_self Include flode in the list?
 #' @export
 #' @examples
-#' #tidyverse_packages()
-flode_packages <- function(include_self = TRUE) {
+#' #flodePackages()
+flodePackages <- function(include_self = TRUE) {
   raw <- utils::packageDescription("flode")$Imports
   imports <- strsplit(raw, ",")[[1]]
   parsed <- gsub("^\\s+|\\s+$", "", imports)

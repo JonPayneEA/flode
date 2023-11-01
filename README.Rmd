@@ -1,0 +1,44 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# flode <img src="logo.png" align="right" alt="" width="120"/>
+
+<!-- badges: start -->
+[![License: GNU General Public License](https://img.shields.io/badge/license-GNU%20General%20Public%20License-blue.svg)](https://cran.r-project.org/web/licenses/GNU%20General%20Public%20License) [1] [![](https://img.shields.io/github/languages/code-size/JonPayneEA/riskyData.svg)](https://github.com/JonPayneEA/riskyData)
+[![](https://img.shields.io/github/last-commit/JonPayneEA/riskyData.svg)](https://github.com/JonPayneEA/riskyData/commits/main)
+<!-- badges: end -->
+
+The goal of flode is to ...
+
+## Installation
+
+You can install the development version of flode from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("JonPayneEA/flode")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(flode)
+## basic example code
+```
+
+What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+
