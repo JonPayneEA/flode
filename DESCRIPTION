@@ -1,12 +1,17 @@
 Package: flode
-Title: What the Package Does (One Line, Title Case)
+Title: Easily load packages from the feet of flode tools
 Version: 1.0.0
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Authors@R: c(
+    person("Jonathan", "Payne", , "jon.payne@environment-agency.gov.uk", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-2551-5353")),
+    person("Oliver", "Dyer", , "oliver.dyer@environment-agency.gov.uk", role = c("aut"),
+           comment = c(ORCID = "0000-0003-2773-6731"))
+           )
+Description: The package `flode` is a set of packages that work together to 
+             speed up the work of E&R processes.
+License: GPL (>= 3)
 Encoding: UTF-8
+URL: https://jonpayneea.github.io/flode/, 
+     https://github.com/JonPayneEA/flode
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3

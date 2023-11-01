@@ -7,7 +7,6 @@
 
 [![License: GNU General Public
 License](https://img.shields.io/badge/license-GNU%20General%20Public%20License-blue.svg)](https://cran.r-project.org/web/licenses/GNU%20General%20Public%20License)
-\[1\]
 [![](https://img.shields.io/github/languages/code-size/JonPayneEA/riskyData.svg)](https://github.com/JonPayneEA/riskyData)
 [![](https://img.shields.io/github/last-commit/JonPayneEA/riskyData.svg)](https://github.com/JonPayneEA/riskyData/commits/main)
 <!-- badges: end -->
@@ -34,6 +33,3 @@ library(flode)
 #> ✔ riskyData 0.2.0
 ## basic example code
 ```
-
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
