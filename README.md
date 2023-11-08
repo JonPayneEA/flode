@@ -7,13 +7,13 @@
 
 [![License: GNU General Public
 License](https://img.shields.io/badge/license-GNU%20General%20Public%20License-blue.svg)](https://cran.r-project.org/web/licenses/GNU%20General%20Public%20License)
-[![](https://img.shields.io/github/languages/code-size/JonPayneEA/riskyData.svg)](https://github.com/JonPayneEA/riskyData)
-[![](https://img.shields.io/github/last-commit/JonPayneEA/riskyData.svg)](https://github.com/JonPayneEA/riskyData/commits/main)
+[![](https://img.shields.io/github/languages/code-size/JonPayneEA/flode.svg)](https://github.com/JonPayneEA/flode)
+[![](https://img.shields.io/github/last-commit/JonPayneEA/flode.svg)](https://github.com/JonPayneEA/flode/commits/master)
 
 <!-- badges: end -->
 
 The goal of `flode` is to provide a tools that work together that
-improve the modellingg workflows required in developing and maintainingg
+improve the modelling workflows required in developing and maintaining
 forecast models
 
 ## Installation
@@ -33,8 +33,7 @@ devtools::install_github("JonPayneEA/flode")
 ``` r
 library(flode)
 #> ── Attaching packages ─────────────────────────────────────────── flode 1.0.0 ──
-#> ✔ riskyData 0.2.0
-## basic example code
+#> ✔ riskyData 0.3.0     ✔ mappER    0.2.0
 ```
 
 ## Packages available
