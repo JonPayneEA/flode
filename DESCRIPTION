@@ -13,7 +13,12 @@ Remotes:
     jonpayneea/riskydata,
     jonpayneea/mapper,
     jonpayneea/objectiver,
-    jonpayneea/hydroler
+    jonpayneea/hydrauler
+Imports: 
+    riskyData,
+    mappER,
+    objectivER,
+    hydraulER
 Depends: 
     R (>= 2.10)
 License: GPL (>= 3)
