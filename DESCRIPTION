@@ -9,9 +9,16 @@ Authors@R: c(
            )
 Description: The package `flode` is a set of packages that work together to 
              speed up the work of E&R processes.
+Remotes: 
+    jonpayneea/riskydata,
+    jonpayneea/mapper,
+    jonpayneea/objectiver,
+    jonpayneea/hydroler
+Depends: 
+    R (>= 2.10)
 License: GPL (>= 3)
 Encoding: UTF-8
 URL: https://jonpayneea.github.io/flode/, 
      https://github.com/JonPayneEA/flode
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
