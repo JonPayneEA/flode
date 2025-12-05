@@ -9,10 +9,11 @@
 
 The purpose of this document is to define how people related to the project work together, so that the project can expand to handle a larger and more diverse group of contributors.
 
-## The `R package`flode` environment
+## The `flode` environment
 
-The purpose of this project is to maintain the R `flode` fleet of packages, which is guided by the following principles:
+The `flode` package is a meta-package providing utilities for easy installation, loading and management of several packages detailed under [`# Current Scope`](#current-scope). It is an extensible framework that allows users to create a 'verse' of packages suiting their general needs - see the upcoming vignette for a concise overview of the package.
 
+The purpose of this project and document is guidance in how to maintain the `flode` fleet of packages, which is guided by the following principles:
 
 ### 1. Package Structure and Design
 
@@ -76,6 +77,8 @@ The purpose of this project is to maintain the R `flode` fleet of packages, whic
 * Transparency: Log all transformations and model runs for auditability.
 
 To prioritise developer time, we define what is in and out of current scope. Feature requests in issues and pull requests that are out of current scope should be closed immediately, because they are not the current priority. If someone wants to contribute code that is currently out of scope, they first have to make a pull request that changes the scope as defined below.
+
+## Current Scope
 
 The current scope of package functionality within `flode` includes:
 
