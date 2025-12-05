@@ -93,12 +93,11 @@ The current scope of package functionality within `flode` includes:
 * `cleanER`: Data cleaning tools.
 
 Functionality that is out of current scope:
+
 * Linking directly to proprietary software APIs.
 * Anything that impacts on EULAs from existing operational products
-* Automatic model calibration.
 * Development of new model methods.
 * Alternative operational forecasting systems
-
 
 # Roles
 
