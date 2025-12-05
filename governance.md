@@ -9,14 +9,14 @@
 
 The purpose of this document is to define how people related to the project work together, so that the project can expand to handle a larger and more diverse group of contributors.
 
-## The R package
+## The `R package`flode` environment
 
-The purpose of the project is to maintain the R `flode` fleet of packages, which is guided by the following principles:
+The purpose of this project is to maintain the R `flode` fleet of packages, which is guided by the following principles:
 
 
 ### 1. Package Structure and Design
 
-* Modular Architecture: Separate functionalities into logical components (e.g., data ingestion, preprocessing, modelling, visualization).
+* Modular Architecture: Separate functionalities into logical components (e.g., data ingestion, preprocessing, modelling, visualisation).
 * Follow R Packaging Standards: Use devtools and usethis for set-up, and adhere to CRAN guidelines for documentation and testing.
 * Namespace Management: Export only essential functions; keep helper functions internal.
 * Computation: Time & memory efficiency.
@@ -36,11 +36,11 @@ The purpose of the project is to maintain the R `flode` fleet of packages, which
 ### 3. Forecast Model Support
 
 * Model-Agnostic Framework: Allow integration of different flood forecasting models (e.g., statistical, machine learning, hydrological).
-* Parameter Calibration Tools: Provide utilities for sensitivity analysis and optimization.
+* Parameter Calibration Tools: Provide utilities for sensitivity analysis and optimisation.
 * (TBC)Scenario Testing: Enable running models under different rainfall or discharge scenarios.
 
 
-### 4. Visualization and Reporting
+### 4. Visualisation and Reporting
 
 * Generate Business themed outputs: Use ggplot2 to underpin data visualisation, applying the EA business themes.
 * (TBC) Interactive Plots: Use ggplot2 and plotly for hydrographs, uncertainty bands, and forecast comparisons.
@@ -50,7 +50,7 @@ The purpose of the project is to maintain the R `flode` fleet of packages, which
 
 ### 5. Performance and Scalability
 
-* Efficient Data Handling: Use data.table or arrow for large datasets.
+* Efficient Data Handling: Use data.table or arrow (upcoming) for large datasets.
 * (TBC) Parallel Processing: Support multi-core computations for model runs.
 * (TBC) Caching: Implement caching for repeated data queries.
 
@@ -75,7 +75,7 @@ The purpose of the project is to maintain the R `flode` fleet of packages, which
 * Reproducibility: Ensure workflows can be replicated with minimal effort.
 * Transparency: Log all transformations and model runs for auditability.
 
-To prioritize developer time, we define what is in and out of current scope. Feature requests in issues and pull requests that are out of current scope should be closed immediately, because they are not the current priority. If someone wants to contribute code that is currently out of scope, they first have to make a pull request that changes the scope as defined below.
+To prioritise developer time, we define what is in and out of current scope. Feature requests in issues and pull requests that are out of current scope should be closed immediately, because they are not the current priority. If someone wants to contribute code that is currently out of scope, they first have to make a pull request that changes the scope as defined below.
 
 The current scope of package functionality within `flode` includes:
 
@@ -88,9 +88,11 @@ The current scope of package functionality within `flode` includes:
 * `cleanER`: Data cleaning tools.
 
 Functionality that is out of current scope:
-* Linking to software APIs.
+* Linking directly to proprietary software APIs.
+* Anything that impacts on EULAs from existing operational products
 * Automatic model calibration.
 * Development of new model methods.
+* Alternative operational forecasting systems
 
 
 # Roles
@@ -100,12 +102,12 @@ These are TBC and will follow the Forecast Modelling Governance Groups work
 ## Product Owner (PO)
 **Purpose**
 
-Owns vision, roadmap, and prioritization. Ensures the package solves the right problems for hydrology/forecasting users and reviewers.
+Owns vision, roadmap, and prioritisation. Ensures the package solves the right problems for hydrology/forecasting users and reviewers.
 
 **Key Responsibilities**
 
 * Define outcomes, MVP scope, and release objectives; maintain a transparent backlog.
-* Prioritize data-source integrations (e.g., WISKI/WaterML connectors), modeling features, and review workflows.
+* Prioritise data-source integrations (e.g., WISKI/WaterML connectors), modelling features, and review workflows.
 * Drive stakeholder engagement: demos, feedback loops, and adoption plans across forecasting teams.
 * Translate domain needs into actionable acceptance criteria with the Domain Expert.
 * Manage risk/benefit trade-offs and negotiate scope vs. dates.
@@ -163,7 +165,7 @@ Day-to-day stewardship of the codebase, ensuring quality, consistency, and relia
 
 * Triage issues, review PRs, maintain DESCRIPTION, NAMESPACE, and versioning.
 * Enforce style (lintr, styler), docs (roxygen2), tests (testthat), coverage targets.
-* Keep CI green (R CMD check --as-cran), manage pkgdown site and artifacts.
+* Keep CI green (R CMD check --as-cran), manage pkgdown site and artefacts.
 * Curate CHANGELOG, deprecation paths, and migration notes.
 * Ensure reproducible environments (renv lockfile maintenance).
 
@@ -174,7 +176,7 @@ Day-to-day stewardship of the codebase, ensuring quality, consistency, and relia
 
 **Deliverables**
 
-* Release artifacts, pkgdown site, coverage and check reports.
+* Release artefacts, pkgdown site, coverage and check reports.
 * Maintainer’s guide, contribution guidelines, code owners mapping.
 
 **Anti‑Patterns to Avoid**
@@ -204,7 +206,7 @@ Guarantees scientific validity and operational usefulness.
 **Deliverables**
 
 * Acceptance notes per feature, metric definitions, benchmark baselines.
-* Synthetic/sanitized datasets and test scenarios.
+* Synthetic/sanitised datasets and test scenarios.
 
 **Anti‑Patterns to Avoid**
 
@@ -222,7 +224,7 @@ Makes the package usable, teachable, and discoverable.
 * Maintain pkgdown site, onboarding guides, troubleshooting, and FAQs.
 * Provide runnable examples with synthetic datasets mirroring real quirks.
 * Create role‑based training (forecasters, reviewers, developers).
-* Keep docs synchronized with releases and deprecations.
+* Keep docs synchronised with releases and deprecations.
 
 **Decision Rights**
 
