@@ -182,7 +182,8 @@ Day-to-day stewardship of the codebase, ensuring quality, consistency, and relia
 * Merging without tests/docs; unreviewed breaking changes; drifting dependencies.
 
 
-## Hydrology/Forecasting Domain Expert
+## Hydrology and Forecasting Domain Expert
+
 **Purpose**
 
 Guarantees scientific validity and operational usefulness.
@@ -210,7 +211,7 @@ Guarantees scientific validity and operational usefulness.
 * Implicit domain assumptions; metrics that don’t reflect operational risk.
 
 
-##Documentation & Training Lead
+## Documentation \& Training Lead
 **Purpose**
 
 Makes the package usable, teachable, and discoverable.
@@ -247,7 +248,7 @@ Makes the package usable, teachable, and discoverable.
 | Domain validation (metrics, outputs)| C             | C                    | C                   | **A/R**      | I                     |
 | Test strategy & coverage targets    | I             | A                    | **R**              | C             | I                     |
 | Release readiness (go/no‑go)        | **A**        | C                    | R                   | C             | C                     |
-|| Documentation & training            | C             | C                    | C                   | C             | **A/R**              |
+| Documentation & training            | C             | C                    | C                   | C             | **A/R**              |
 | Change logs & migration notes       | I             | C                    | **A/R**            | C             | **R**                |
 
 **Legend:**  
