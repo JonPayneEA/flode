@@ -11,9 +11,11 @@ The purpose of this document is to define how people related to the project work
 
 ## The `flode` environment
 
-The `flode` package is a meta-package providing utilities for easy installation, loading and management of several packages detailed under [`# Current Scope`](#current-scope). It is an extensible framework that allows users to create a 'verse' of packages suiting their general needs - see the upcoming vignette for a concise overview of the package.
+The `flode` package is a meta-framework designed to simplify the installation, loading, and management of multiple related packages, as outlined in the [`# Current Scope`](#current-scope). It provides an extensible structure that enables users to build a tailored “verse” of packages to meet their specific needs. A forthcoming vignette will offer a concise overview of its functionality and usage.
 
-The purpose of this project and document is guidance in how to maintain the `flode` fleet of packages, which is guided by the following principles:
+All tool development undertaken in R by the **Forecasting & Warning Department of the Environment Agency** must comply with the standards described in this document. Tools that meet these standards and performance requirements will be integrated into the `flode` meta-library.
+
+The purpose of this project and accompanying documentation is to provide clear guidance on maintaining the `flode` ecosystem of packages. This effort is driven by the following core principles:
 
 ### 1. Package Structure and Design
 
