@@ -112,9 +112,9 @@ Owns vision, roadmap, and prioritisation. Ensures the package solves the right p
 
 * Define outcomes, MVP scope, and release objectives; maintain a transparent backlog.
 * Prioritise data-source integrations (e.g., WISKI/WaterML connectors), modelling features, and review workflows.
-* Drive stakeholder engagement: demos, feedback loops, and adoption plans across forecasting teams.
+* Stakeholder engagement: demos, feedback loops, and adoption plans across forecasting and warning.
 * Translate domain needs into actionable acceptance criteria with the Domain Expert.
-* Manage risk/benefit trade-offs and negotiate scope vs. dates.
+* Manage risk/benefit trade-offs and negotiate scope Vs. dates.
 
 **Decision Rights**
 
@@ -139,8 +139,8 @@ Owns technical strategy, modular design, performance, and reliability.
 
 **Key Responsibilities**
 
-* Define architecture boundaries (e.g., ingest → transform → model → evaluate → viz modules).
-* Approve dependencies and patterns (data.table, targets, httr, arrow, roxygen2, testthat, renv).
+* Define architecture boundaries (e.g., ingest → transform → model → evaluate → visualisation modules).
+* Approve dependencies and patterns (data.table, R6, targets, httr, arrow, roxygen2, testthat, renv).
 * Design for reproducibility (set seeds, deterministic pipelines), auditability (logging, provenance), and observability (metrics).
 * Set standards: code style, error handling, performance budgets, data contracts (units, time zones, station metadata).
 * Oversee CI/CD, packaging, and versioning strategies (semver, breaking change policy).
@@ -304,3 +304,12 @@ Errors and reports of impropper use should be escalated to the Forecast Modellin
 # Governance history
 
 Nov 2025: Establishment of basic governance structure.
+
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
