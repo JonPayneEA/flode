@@ -307,37 +307,23 @@ Nov 2025: Establishment of basic governance structure.
 
 
 ```mermaid
-graph [rankdir = TD, layout = dot, splines = spline, fontsize = 12]
-
-  node [shape = rectangle, style = filled, color = '#1A73E8',
-        fillcolor = '#E8F0FE', fontname = Helvetica, fontsize = 10]
-
-  // Nodes (12-stage simplified lifecycle)
-  A  [label='1. Data Governance & Roles']
-  B  [label='2. Data Architecture & Catalog']
-  C  [label='3. Data Acquisition & Integration']
-  D  [label='4. Storage & Versioning']
-  E  [label='5. Data Quality & Validation']
-  F  [label='6. Security & Access Control']
-  G  [label='7. Reference & Master Data']
-  H  [label='8. Pre-processing & Boundary Conditions']
-  I  [label='9. Model Setup & Configuration\\n(Hydraulic & Conceptual)']
-  J  [label='10. Calibration & Verification']
-  K  [label='11. Operational Forecasting & Scenario Mgmt']
-  L  [label='12. Monitoring, Audit & Continuous Improvement']
-
-  // Main flow
-  A -> B -> C -> D -> E -> F -> G -> H -> I -> J -> K -> L
-  L -> A  // governance loop
-
-  // Feedback loops (governance gates)
-  E -> C [style = dashed, color = '#5F6368', label='DQ feedback']
-  D -> B [style = dashed, color = '#5F6368', label='Lineage informs architecture']
-  H -> E [style = dashed, color = '#5F6368', label='Boundary checks']
-  J -> I [style = dashed, color = '#5F6368', label='Calib→setup']
-  L -> A [style = dashed, color = '#5F6368', label='Audit→policy updates']
-
-  // Edge styling
-  edge [color = '#5F6368', arrowsize = 0.8, penwidth = 1.2]
-}
+flowchart LR
+  A[1. Data Governance & Roles (EA policies, RACI, standards)] --> B[2. Data Architecture & Catalog (Hydrometric Data Register, Lineage)]
+  B --> C[3. Data Acquisition & Integration (Gauges, Met Office, NRFA/FEH, ETL/APIs)]
+  C --> D[4. Storage & Versioning (Time Series Repository, Snapshots, Retention)]
+  D --> E[5. Data Quality & Validation (Ranges, Gaps, Station Health, QA reports)]
+  E --> F[6. Security & Access Control (RBAC/ABAC, Encryption, Secrets)]
+  F --> G[7. Reference & Master Data (Stations, Catchments, Reaches, Thresholds)]
+  G --> H[8. Pre-processing & Boundary Conditions (Alignment, Units, Inflows, Initial States)]
+  H --> I[9. Model Setup & Configuration (Hydraulic & Conceptual)]
+  I --> J[10. Calibration & Verification (Historicals, Independent periods)]
+  J --> K[11. Operational Forecasting & Scenario Mgmt (NFFS / FWD Ops)]
+  K --> L[12. Monitoring, Audit & Continuous Improvement]
+  L --> A
+  %% Feedback loops
+  E -.-> C
+  D -.-> B
+  H -.-> E
+  J -.-> I
+  L -.-> A
 ```
