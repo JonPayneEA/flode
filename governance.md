@@ -291,7 +291,7 @@ The full Code of Conduct can be found [here](https://numfocus.org/code-of-conduc
 
 ## Reporting Responsibility
 
-Errors and reports of impropper use should be escalated to the Forecast Modelling Governance Group.
+Errors and reports of improper use should be escalated to the Forecast Modelling Governance Group.
 
 # Version numbering
 
@@ -307,9 +307,37 @@ Nov 2025: Establishment of basic governance structure.
 
 
 ```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+graph [rankdir = TD, layout = dot, splines = spline, fontsize = 12]
+
+  node [shape = rectangle, style = filled, color = '#1A73E8',
+        fillcolor = '#E8F0FE', fontname = Helvetica, fontsize = 10]
+
+  // Nodes (12-stage simplified lifecycle)
+  A  [label='1. Data Governance & Roles']
+  B  [label='2. Data Architecture & Catalog']
+  C  [label='3. Data Acquisition & Integration']
+  D  [label='4. Storage & Versioning']
+  E  [label='5. Data Quality & Validation']
+  F  [label='6. Security & Access Control']
+  G  [label='7. Reference & Master Data']
+  H  [label='8. Pre-processing & Boundary Conditions']
+  I  [label='9. Model Setup & Configuration\\n(Hydraulic & Conceptual)']
+  J  [label='10. Calibration & Verification']
+  K  [label='11. Operational Forecasting & Scenario Mgmt']
+  L  [label='12. Monitoring, Audit & Continuous Improvement']
+
+  // Main flow
+  A -> B -> C -> D -> E -> F -> G -> H -> I -> J -> K -> L
+  L -> A  // governance loop
+
+  // Feedback loops (governance gates)
+  E -> C [style = dashed, color = '#5F6368', label='DQ feedback']
+  D -> B [style = dashed, color = '#5F6368', label='Lineage informs architecture']
+  H -> E [style = dashed, color = '#5F6368', label='Boundary checks']
+  J -> I [style = dashed, color = '#5F6368', label='Calib→setup']
+  L -> A [style = dashed, color = '#5F6368', label='Audit→policy updates']
+
+  // Edge styling
+  edge [color = '#5F6368', arrowsize = 0.8, penwidth = 1.2]
+}
 ```
