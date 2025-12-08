@@ -348,17 +348,17 @@ Nov 2025: Establishment of basic governance structure.
 
 ``` mermaid
 flowchart TD
-  A["1. Data Governance & Roles (EA policies, RACI, standards)"] --> B["2. Data Architecture & Catalog (Hydrometric Data Register, Lineage)"]
-  B --> C["3. Data Acquisition & Integration (Gauges, Met Office, NRFA/FEH, ETL/APIs)"]
-  C --> D["4. Storage & Versioning (Time Series Repository, Snapshots, Retention)"]
-  D --> E["5. Data Quality & Validation (Ranges, Gaps, Station Health, QA reports)"]
-  E --> F["6. Security & Access Control (RBAC/ABAC, Encryption, Secrets)"]
-  F --> G["7. Reference & Master Data (Stations, Catchments, Reaches, Thresholds)"]
-  G --> H["8. Pre-processing & Boundary Conditions (Alignment, Units, Inflows, Initial States)"]
-  H --> I["9. Model Setup & Configuration (Hydraulic & Conceptual)"]
-  I --> J["10. Calibration & Verification (Historicals, Independent periods)"]
-  J --> K["11. Operational Forecasting & Scenario Mgmt (NFFS / FWD Ops)"]
-  K --> L["12. Monitoring, Audit & Continuous Improvement"]
+  A["<b> Data Governance & Roles <b/> (EA policies, RACI, standards)"] --> B["Data Architecture & Catalogue (Hydrometric Data Register, Lineage)"]
+  B --> C["Data Acquisition & Integration (Gauges, Met Office, NRFA/FEH, ETL/APIs)"]
+  C --> D["Storage & Versioning (Time Series Repository, Snapshots, Retention)"]
+  D --> E["Data Quality & Validation (Ranges, Gaps, Station Health, QA reports)"]
+  E --> F["Security & Access Control (RBAC/ABAC, Encryption, Secrets)"]
+  F --> G["Reference & Master Data (Stations, Catchments, Reaches, Thresholds)"]
+  G --> H["Pre-processing & Boundary Conditions (Alignment, Units, Inflows, Initial States)"]
+  H --> I["Model Setup & Configuration (Hydraulic & Conceptual)"]
+  I --> J["Calibration & Verification (Historicals, Independent periods)"]
+  J --> K["Operational Forecasting & Scenario Mgmt (NFFS / FWD Ops)"]
+  K --> L["Monitoring, Audit & Continuous Improvement"]
   L --> A
   %% Feedback loops
   E -.-> C
