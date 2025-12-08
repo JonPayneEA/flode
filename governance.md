@@ -1,6 +1,6 @@
 # Governance for the R `flode` project
 
-**NOTE** 
+**NOTE**
 
 *This document is currently in it's draft stage and does not represent the full governance of the flode project*
 
@@ -240,7 +240,7 @@ Makes the package usable, teachable, and discoverable.
 ## RACI Matrix (Focused Roles)
 
 | Activity                             | Product Owner | Technical Architect | Package Maintainer | Domain Expert | Docs & Training Lead |
-|--------------|------------|------------|------------|------------|------------|
+|------------|------------|------------|------------|------------|------------|
 | Roadmap & priorities                 | **A/R**       | C                   | C                  | C             | C                    |
 | Architecture decisions               | I             | **A/R**             | C                  | C             | I                    |
 | Dependency policy                    | I             | **A/R**             | C                  | C             | I                    |
@@ -296,8 +296,58 @@ Errors and reports of improper use should be escalated to the Forecast Modelling
 
 Nov 2025: Establishment of basic governance structure.
 
-```mermaid
-flowchart LR
+# Wider Governance
+
+1.  **Data Governance & Role**
+
+    EA policies, standards, stewardship/RACI, approval gates.
+
+2.  **Data Architecture & Catalogue**
+
+    EA target architecture, Hydrometric Data Register/Data Catalogue, lineage & business definitions.
+
+3.  **Data Acquisition & Integration**
+
+    Hydrometric (gauges), meteorological (rainfall, radar), NRFA/FEH inputs, ETL/ELT, APIs.
+
+4.  **Storage & Versioning**
+
+    Time Series Repository (TSR) / data lake / warehouse, dataset snapshots, retention, runbooks.
+
+5.  **Data Quality & Validation**
+
+    QA rules (ranges, gaps, duplicates, station health), profiling, exception reports.
+
+6.  **Security & Access Control**
+
+    RBAC/ABAC, encryption, secrets management (e.g., key vaults), least‑privilege.
+
+7.  **Reference & Master Data**
+
+    Authoritative lists (stations, catchments, model reaches, flood zones, thresholds).
+
+8.  **Pre‑processing & Boundary Conditions**
+
+    Time alignment, unit conversions, rainfall/tide inflows, boundary & initial states.
+
+9.  **Model Set-up & Configuration (Hydraulic & Conceptual)**
+
+    Schematics, parameters, control files; versioned configuration in source control.
+
+10. **Calibration & Verification**
+
+    Calibrate with historical events; verify on independent periods; document acceptance criteria.
+
+11. **Operational Forecasting & Scenario Management**
+
+    NFFS / FWD Ops runs, scenario configs (ensembles, tides), dissemination outputs.
+
+12. **Monitoring, Audit & Continuous Improvement**
+
+    Performance & incident monitoring, audit trail, lessons learned → policy & standard updates.
+
+``` mermaid
+flowchart TD
   A["1. Data Governance & Roles (EA policies, RACI, standards)"] --> B["2. Data Architecture & Catalog (Hydrometric Data Register, Lineage)"]
   B --> C["3. Data Acquisition & Integration (Gauges, Met Office, NRFA/FEH, ETL/APIs)"]
   C --> D["4. Storage & Versioning (Time Series Repository, Snapshots, Retention)"]
