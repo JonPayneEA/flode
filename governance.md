@@ -348,17 +348,17 @@ Nov 2025: Establishment of basic governance structure.
 
 ``` mermaid
 flowchart TD
-  A["<b> Data Governance & Roles <b/> (EA policies, RACI, standards)"] --> B["Data Architecture & Catalogue (Hydrometric Data Register, Lineage)"]
-  B --> C["Data Acquisition & Integration (Gauges, Met Office, NRFA/FEH, ETL/APIs)"]
-  C --> D["Storage & Versioning (Time Series Repository, Snapshots, Retention)"]
-  D --> E["Data Quality & Validation (Ranges, Gaps, Station Health, QA reports)"]
-  E --> F["Security & Access Control (RBAC/ABAC, Encryption, Secrets)"]
-  F --> G["Reference & Master Data (Stations, Catchments, Reaches, Thresholds)"]
-  G --> H["Pre-processing & Boundary Conditions (Alignment, Units, Inflows, Initial States)"]
-  H --> I["Model Setup & Configuration (Hydraulic & Conceptual)"]
-  I --> J["Calibration & Verification (Historicals, Independent periods)"]
-  J --> K["Operational Forecasting & Scenario Mgmt (NFFS / FWD Ops)"]
-  K --> L["Monitoring, Audit & Continuous Improvement"]
+  A["<b>Data Governance & Roles</b> EA policies, RACI, standards"] --> B["<b>Data Architecture & Catalogue</b> <br>Hydrometric Data Register, Lineage"]
+  B --> C["<b>Data Acquisition & Integration</b> <br> Gauges, Met Office, NRFA/FEH, ETL/APIs"]
+  C --> D["<b>Storage & Versioning</b> <br> Time Series Repository, Snapshots, Retention)"]
+  D --> E["<b>Data Quality & Validation</b> <br> Ranges, Gaps, Station Health, QA reports"]
+  E --> F["<b>Security & Access Control</b> <br> RBAC/ABAC, Encryption, Secrets"]
+  F --> G["<b>Reference & Master Data</b> <br> Stations, Catchments, Reaches, Thresholds"]
+  G --> H["<b>Pre-processing & Boundary Conditions</b> <br> Alignment, Units, Inflows, Initial States)"]
+  H --> I["<b>Model Setup & Configuration</b> <br> Hydraulic & Conceptual"]
+  I --> J["<b>Calibration & Verification</b> <br> Historicals, Independent periods"]
+  J --> K["<b>Operational Forecasting & Scenario Mgmt</b> <br> NFFS / FWD Ops"]
+  K --> L["<b>Monitoring, Audit & Continuous Improvement</b>"]
   L --> A
   %% Feedback loops
   E -.-> C
