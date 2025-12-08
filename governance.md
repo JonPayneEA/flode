@@ -1,6 +1,8 @@
 # Governance for the R `flode` project
 
-**NOTE** *This document is currently in it's draft stage and does not represent the full governance of the flode project*
+**NOTE** 
+
+*This document is currently in it's draft stage and does not represent the full governance of the flode project*
 
 # Purpose and scope
 
