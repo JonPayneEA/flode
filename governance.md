@@ -320,7 +320,7 @@ Nov 2025: Establishment of basic governance structure.
 
 6.  **Security & Access Control**
 
-    RBAC/ABAC, encryption, secrets management (e.g., key vaults), least‑privilege.
+    RBAC (Role-Based Access Control) Vs. ABAC (Attribute-Based Access Control), encryption, secrets management (e.g., key vaults), least‑privilege.
 
 7.  **Reference & Master Data**
 
