@@ -12,13 +12,14 @@ Built upon a consistent data structure and an academically-themed naming convent
 
 **Academic Rigour:** Designed around established hydrological principles and statistical methods, encapsulated in powerful, yet accessible functions.
 
-## 🌊 `Flode` Package Suite: Conceptual Naming (Root-Based)
+## 🌊 `flode` Package Suite: Conceptual Naming (Root-Based)
 
 These names are derived from Greek and Latin roots to provide unique, academically themed identifiers for the downstream hydrological R packages.
 
 | Function | Package Name | Root/Origin | Hydrological Meaning |
 | :--- | :--- | :--- | :--- |
 | **Data wrangling and downloading off APIs** | **`epotamic`** | Greek: *potamos* (river) + *e-* (from) - **"from the river"** | Drawing data from the river source. |
+| **Data wrangling and downloading off APIs** | **`fontis`** | Latin: *Fons, fontis*  - **"Source, Spring, Fountain"** | The source of all data; it draws data directly from the spring.|
 | **Carrying out geospatial analytics** | **`choros`** | Greek: *Choros* ($\chi o\rho o\acute{s}$) - **"place, space, region"** | Analysing the spatial context and geography of the water system. |
 | **Review models with statistical tests** | **`telos`** | Greek: *Telos* ($\tau\acute{\epsilon}\lambda o\varsigma$) - **"end, goal, completion"** | Focuses on the final result and achievement of the model's validity. |
 | **Generate design hydrology** | **`diluvium`** | Latin: *Diluvium* - **"flood, deluge, inundation"** | Generates models for extreme, design-level flood events. |
@@ -28,27 +29,27 @@ These names are derived from Greek and Latin roots to provide unique, academical
 
 ### Package Summary
 
-1. **`epotamic`**: The "entry point" for your data pipeline.
+1. **`epotamic`/`fontis`**: The "entry point" for your data pipeline.
 2. **`choros`**: Handles all coordinate systems, GIS operations, and catchment delineations.
 3. **`telos`**: Provides the "final word" on model performance through rigorous testing.
 4. **`diluvium`**: Dedicated to return periods, hydrograph generation, and flood risk.
 5. **`hydrometra`**: Focuses on the physical mechanics of water—rating curves and hydraulic equations.
 
 
-## 🌊 `Flode` Package Suite Documentation
+## 🌊 `flode` Package Suite Documentation
 
 This document outlines the core fields for the `DESCRIPTION` files of the five packages comprising the `flode` hydrological R package suite.
 
 ---
 
-### 📦 Package: `epotamic` (Data Wrangling/API)
+### 📦 Package: `epotamic`/`fontis` (Data Wrangling/API)
 
 | Field | Content |
 | :--- | :--- |
-| **Package** | `epotamic` |
+| **Package** | `epotamic`/`fontis` |
 | **Title** | Hydrological Data Retrieval and Initial Wrangling |
 | **Description** | Provides a comprehensive suite of tools for connecting to, downloading, and aggregating raw hydrological and meteorological data from various national and international APIs. It standardises heterogeneous data formats into a tidy, consistent structure for use across the `flode` package suite. |
-| **Root/Origin** | Greek: *potamos* (river) + *e-* (from) - **"from the river"** |
+| **Root/Origin** | Greek: *potamos* (river) + *e-* (from) - **"from the river"**/ Latin: *Fons, fontis*  - **"Source, Spring, Fountain"** |
 
 ---
 
