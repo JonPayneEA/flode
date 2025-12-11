@@ -42,7 +42,7 @@ This document outlines the core fields for the `DESCRIPTION` files of the five p
 
 ---
 
-### 📦 Package: `epotamic`/`fontis` (Data Wrangling/API)
+### 💧 Package: `epotamic`/`fontis` (Data Wrangling/API)
 
 | Field | Content |
 | :--- | :--- |
@@ -94,6 +94,60 @@ This document outlines the core fields for the `DESCRIPTION` files of the five p
 | **Title** | Open-Channel Hydraulics and Streamflow Rating Curve Optimisation |
 | **Description** | Provides functions for basic open-channel hydraulics calculations (e.g., using Manning's equation) and the optimisation of streamflow rating curves. This includes stage-discharge data processing, error estimation, and methods for extrapolating and validating rating tables for critical high-flow and low-flow conditions.  |
 | **Root/Origin** | Greek: *Hydor* (water) + *Metron* (measure) - **"water measurement"** |
+
+## ➕ Potential Additions to the `flode` Ecosystem
+
+---
+
+### 1. Model Calibration and Parameter Estimation
+
+| Field | Content |
+| :--- | :--- |
+| **Package** | **`kalos`** |
+| **Title** | Automated Parameter Calibration and Sensitivity Analysis |
+| **Description** | Provides specialized functions for optimizing and calibrating parameters in hydrological models. Includes algorithms for global and local search (e.g., SCE-UA), and methods for conducting sensitivity and uncertainty analysis (e.g., Morris screening) to identify influential parameters and improve model reliability. |
+| **Root/Origin** | Greek: *Kalos* ($\kappa \alpha \lambda o\acute{\varsigma}$) - **"Good, Beautiful, Noble"** |
+
+---
+
+### 2. Time-Series Pre-Processing and Disaggregation
+
+| Field | Content |
+| :--- | :--- |
+| **Package** | **`chronos`** |
+| **Title** | Temporal Manipulation and Resampling of Hydrological Data |
+| **Description** | Focuses on advanced manipulation of time-series data. Includes tools for temporal resampling (e.g., aggregating daily data to monthly averages), interpolation for fine time-steps, and statistical downscaling or disaggregation of coarse data (e.g., rainfall) to meet model input requirements. |
+| **Root/Origin** | Greek: *Chronos* ($\chi \rho o\acute{v} o\varsigma$) - **"Time"** |
+
+---
+
+### 3. Visualization and Reporting
+
+| Field | Content |
+| :--- | :--- |
+| **Package** | **`pinax`** |
+| **Title** | Publication-Quality Hydrological Graphics and Reporting |
+| **Description** | Dedicated to creating clear, publication-ready visualisations specific to hydrology. Offers specialized `ggplot2` themes, color palettes, and custom geoms for generating standard plots like flow duration curves, hydrographs, and rating curve comparisons, along with functions for generating simple reports. |
+| **Root/Origin** | Greek: *Pinax* ($\pi \acute{\imath}\nu \alpha \xi$) - **"Board, Table, Panel"** |
+
+### 4. Historic Operational Performance (Reframed for Forecasters)
+
+| Field | Content |
+| :--- | :--- |
+| **Package** | **`mnemos`** |
+| **Title** | Operational Forecast Verification and Hindcast Performance Benchmarking |
+| **Description** | Used systematically analyse the quality and reliability of past simulation data (hindcasts) against observed events and the **forecasters** ability to translate uncertainties into accurate outputs. Tools focus on operational metrics, including: **Lead Time Accuracy** (e.g., assessing prediction timing error), **Categorical Skill Scores** (e.g., Probability of Detection, False Alarm Ratio), and **System Benchmarking** against expected standards. It helps users understand where and why forecast simulations succeeded or failed historically.  |
+| **Root/Origin** | Greek: *Mnemos* ($\mu \nu \tilde{\eta} \mu o\varsigma$) - **"Mindful, Remembering"** (The root of Mnemosyne, the goddess of memory). |
+
+### 5. Gridded Spatial Data Handling
+
+| Field | Content |
+| :--- | :--- |
+| **Package** | **`tessera`** |
+| **Title** | Gridded Spatial Data Processing and Array Manipulation for Hydrology |
+| **Description** | Specialised tools for handling and manipulating large gridded spatial datasets (rasters and arrays), such as Digital Elevation Models (DEMs), gridded meteorological products (e.g., radar precipitation), and climate model outputs. Functions include spatial resampling, masking, zonal statistics (e.g., calculating mean rainfall over a catchment), and conversion between array formats and standard R spatial objects.  |
+| **Root/Origin** | Greek: *Tessera* ($\tau \acute{\epsilon}\sigma \sigma \epsilon \rho \alpha$) - **"Four"** or **"Square/Tile"** (Referring to the square grid cells that make up raster data). |
+
 
 † In the context of R programming and package design, "opinionated" means that the developers have made conscious, specific choices about how data should be structured, how functions should be named, and how analyses should be performed.
 
