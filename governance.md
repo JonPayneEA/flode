@@ -240,7 +240,7 @@ Makes the package usable, teachable, and discoverable.
 ## RACI Matrix (Focused Roles)
 
 | Activity                             | Product Owner | Technical Architect | Package Maintainer | Domain Expert | Docs & Training Lead |
-|------------|------------|------------|------------|------------|------------|
+|--------------------------------------|---------------|---------------------|--------------------|---------------|----------------------|
 | Roadmap & priorities                 | **A/R**       | C                   | C                  | C             | C                    |
 | Architecture decisions               | I             | **A/R**             | C                  | C             | I                    |
 | Dependency policy                    | I             | **A/R**             | C                  | C             | I                    |
