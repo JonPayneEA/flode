@@ -1,67 +1,64 @@
+# flode (meta-package)
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+The `flode` meta-package loads the full Forecasting and Warning R toolkit
+in one call — the same pattern as `library(tidyverse)`.
 
-# flode <img src="logo.png" align="right" width="120"/>
+```r
+library(flode)
+#> -- flode 0.1.0 -- Forecasting Operations and Development Environment --
+#> v Attaching core packages:
+#>   reach.utils 0.1.0    reach.validate 0.1.0
+#>   reach.io 0.1.0       reach.viz 0.1.0
+#>   reach.hydro 0.1.0
+#>   reach.ensemble 0.1.0
+```
 
-<!-- badges: start -->
+All sub-package functions are immediately available with no further imports.
 
-[![License: GNU General Public
-License](https://img.shields.io/badge/license-GNU%20General%20Public%20License-blue.svg)](https://cran.r-project.org/web/licenses/GNU%20General%20Public%20License)
-[![](https://img.shields.io/github/languages/code-size/JonPayneEA/flode.svg)](https://github.com/JonPayneEA/flode)
-[![](https://img.shields.io/github/last-commit/JonPayneEA/flode.svg)](https://github.com/JonPayneEA/flode/commits/master)
-
-<!-- badges: end -->
-
-The goal of `flode` is to provide a tools that work together that
-improve the modelling workflows required in developing and maintaining
-forecast models
+---
 
 ## Installation
 
-You can install the development version of flode from
-[GitHub](https://github.com/) with:
+```r
+# Install the meta-package and all sub-packages from the team Git platform
+remotes::install_git("https://git.internal/forecasting/flode")
 
-``` r
-# install.packages("devtools")
-devtools::install_github("JonPayneEA/flode")
+# Restore the pinned dependency environment (do this first on a new machine)
+renv::restore()
 ```
 
-## Usage
+---
 
-`library(flode)` will load the core flode packages:
+## What gets loaded
 
-``` r
-library(flode)
-#> ── Attaching packages ─────────────────────────────────────────── flode 1.0.0 ──
-#> ✔ riskyData 0.3.0     ✔ mappER    0.2.0
+| Sub-package | Contents |
+|---|---|
+| `reach.utils` | Datetime helpers, config loading, logging |
+| `reach.io` | Gauge CSV, Parquet, netCDF read/write |
+| `reach.hydro` | Flow statistics, unit conversion, flood peaks |
+| `reach.ensemble` | Quantile extraction, member weighting, exceedance probability |
+| `reach.validate` | NSE, KGE, PBIAS, RMSE validation metrics |
+| `reach.viz` | `theme_flode()`, flow series and ensemble fan plots |
+
+---
+
+## Helper functions
+
+```r
+# Check all installed versions
+flode_versions()
+
+# Reload a subset of packages
+flode_attach(c("reach.hydro", "reach.validate"))
+
+# Update everything from the team repo
+flode_update()
 ```
 
-## Packages available
+---
 
-<div style="float:left;position: relative;">
+## Adding a new sub-package
 
-<img src="man/figures/logosVert.png" align="float:left" width="240"/>
-
-</div>
-
-<br/><br/>  
-[flode](https://jonpayneea.github.io/riskyData/) for loading the range
-of packages <br/><br/> <br/><br/>
-[riskyData](https://jonpayneea.github.io/riskyData/) for handling
-hydrometric data import  
-<br/><br/> <br/><br/>
-[hydrolER](https://jonpayneea.github.io/riskyData/) for carrying out
-hydrological analyses  
-<br/><br/> <br/><br/>
-[hydraulER](https://jonpayneea.github.io/riskyData/) carries out
-analyses of hydraulic data  
-<br/><br/> <br/><br/>
-[objectivER](https://jonpayneea.github.io/riskyData/) provides a range
-of model performance metrics  
-<br/><br/>  
-[cleanER](https://jonpayneea.github.io/riskyData/) for data cleaning
-tools  
-<br/><br/> <br/><br/> [mappER](https://jonpayneea.github.io/riskyData/)
-for supplying all your mapping needs in forecasting  
-<br/><br/> <br/><br/> [fastER](https://jonpayneea.github.io/riskyData/)
-supercharged functions to speed up work
+To add a new module to what `library(flode)` loads, add it to `.flode_packages`
+in `R/flode.R` and add it to `Imports:` in `DESCRIPTION`. Open a PR against
+the flode meta-package repo and tag the Flode Steward for review.

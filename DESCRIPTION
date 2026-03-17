@@ -1,29 +1,31 @@
 Package: flode
-Title: Easily load packages from the feet of flode tools
-Version: 0.1.0.9000
-Authors@R: c(
-    person("Jonathan", "Payne", , "jon.payne@environment-agency.gov.uk", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0003-2551-5353")),
-    person("Oliver", "Dyer", , "oliver.dyer@environment-agency.gov.uk", role = c("aut"),
-           comment = c(ORCID = "0000-0003-2773-6731"))
-           )
-Description: The package `flode` is a set of packages that work together to 
-             speed up the work of E&R processes.
-Remotes: 
-    jonpayneea/riskydata,
-    jonpayneea/mapper,
-    jonpayneea/objectiver,
-    jonpayneea/hydrauler
-Imports: 
-    riskyData,
-    mappER,
-    objectivER,
-    hydraulER
-Depends: 
-    R (>= 2.10)
-License: GPL (>= 3)
+Title: Forecasting Operations and Development Environment
+Version: 0.1.0
+Authors@R:
+    person("Forecasting and Warning Team", role = c("aut", "cre"),
+           email = "forecasting@environment-agency.gov.uk")
+Description: Flode is the Forecasting and Warning team's meta-package.
+    Loading flode attaches all core sub-packages (reach.io, reach.hydro,
+    reach.ensemble, reach.validate, reach.viz, reach.utils) and prints a
+    startup message confirming what was loaded. Modelled on the tidyverse
+    meta-package pattern.
+License: MIT + file LICENSE
 Encoding: UTF-8
-URL: https://jonpayneea.github.io/flode/, 
-     https://github.com/JonPayneEA/flode
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.3
+Depends:
+    R (>= 4.2.0)
+Imports:
+    reach.io,
+    reach.hydro,
+    cli (>= 3.6.0),
+    rstudioapi
+Suggests:
+    testthat (>= 3.0.0),
+    reach.ensemble,
+    reach.validate,
+    reach.viz,
+    reach.utils,
+Config/testthat/edition: 3
+URL: https://github.com/ea-forecasting/flode
+BugReports: https://github.com/ea-forecasting/flode/issues
