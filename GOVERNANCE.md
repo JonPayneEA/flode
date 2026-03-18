@@ -10,10 +10,10 @@ All tools in the flode ecosystem are **Route B — Shared Module / Package** ass
 
 | Role | Holder | Grade | Notes |
 |---|---|---|---|
-| **Owner** | Neil Ryan / Jo Coles | Deputy Director | Approval authority for Tier 1 promotion and deprecation |
+| **Owner** |TBC | Deputy Director | Approval authority for Tier 1 promotion and deprecation |
 | **Steward** | TBC | G7 | Day-to-day governance, Tool Register, access approval |
 | **Technical Lead / Delegated Steward** | Jonathan Payne | G6 | Operational lead; coordinates development and reviews |
-| **Custodian(s)** | F&W Data and Digital Assets Governance Group | Any | Development, maintenance, and issue reporting |
+| **Custodian(s)** | TBC | Any | Development, maintenance, and issue reporting |
 
 > Delegation must be recorded with a start date. Delegation does not transfer accountability.
 
