@@ -1,7 +1,5 @@
 # flode <img src="man/figures/logo.png" align="right" height="139" alt="" />
 
-> **F**orecasting and **Lo**ad **D**ata **E**nvironment
-
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/JonPayneEA/flode/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/JonPayneEA/flode/actions/workflows/R-CMD-check.yaml)
@@ -9,7 +7,7 @@
 
 ## Overview
 
-`flode` is a meta-package for flood forecasting and hydrometric data analysis, modelled on the [tidyverse](https://www.tidyverse.org/) design pattern. Installing and loading `flode` gives you access to the complete suite of **reaches** sub-packages in a single call.
+`flode` is a meta-package for flood forecasting and hydrometric data analysis. Installing and loading `flode` gives you access to the complete suite of **reaches** sub-packages in a single call.
 
 ```r
 library(flode)
@@ -78,10 +76,10 @@ flode_update()
 
 ## Design principles
 
-- **Consistent interfaces** — all reaches packages follow the same bronze-schema data model
+- **Consistent interfaces** — all reach packages follow the same bronze-schema data model
 - **Pipeline-ready** — designed for operational EA Hydrometric Data Framework workflows
-- **Parallel-first** — heavy I/O operations are parallelised via `future` / `future.apply`
-- **Tidy-compatible** — outputs are data.table / tibble friendly
+- **Parallel-first** — heavy I/O operations are parallelised where possible via `future` / `future.apply`
+- **Tidy-compatible** — outputs are data.table friendly
 
 ---
 
