@@ -94,4 +94,8 @@ This package is maintained by the Environment Agency Forecasting and Warning Tea
 
 ## License
 
-MIT © Environment Agency
+MIT
+
+---
+
+

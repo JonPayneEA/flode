@@ -6,6 +6,16 @@ All tools in the flode ecosystem are **Route B — Shared Module / Package** ass
 
 ---
 
+## Companion Documents
+
+| Document | Location | Covers |
+|---|---|---|
+| Hydrometric Data Framework reference | [`reach.io/inst/data-framework.md`](https://github.com/JonPayneEA/reach.io/blob/master/inst/data-framework.md) | Bronze/Silver/Gold schema, dataset IDs, quality flags, storage structure |
+| Contributing guide | [`flode/CONTRIBUTING.md`](CONTRIBUTING.md) | Coding standards, fastverse conventions, branching, PR process |
+| Tool Register | [`flode/inst/tool-register.md`](inst/tool-register.md) | Custodianship, tier status, delegation log for all 7 packages |
+
+---
+
 ## Governance Roles
 
 | Role | Holder | Grade | Notes |
