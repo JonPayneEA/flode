@@ -14,12 +14,13 @@
 
 # The sub-packages that flode loads, in dependency order
 .flode_packages <- c(
-  # "reach.utils",
+  "reach.utils",
   "reach.io",
-  "reach.hydro"
+  "reach.hydro",
+  "reach.viz",
+  "reach.basin"
   # "reach.ensemble",
-  # "reach.validate",
-  # "reach.viz"
+  # "reach.validate"
 )
 
 # .onAttach runs when the user calls library(flode)
