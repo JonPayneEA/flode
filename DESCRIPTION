@@ -20,12 +20,19 @@ Imports:
     reach.hydro,
     cli (>= 3.6.0),
     rstudioapi
+Remotes:
+    JonPayneEA/reach.io,
+    JonPayneEA/reach.hydro,
+    JonPayneEA/reach.utils,
+    JonPayneEA/reach.viz,
+    JonPayneEA/reach.basin
 Suggests:
     testthat (>= 3.0.0),
     reach.ensemble,
     reach.validate,
     reach.viz,
     reach.utils,
+    reach.basin,
 Config/testthat/edition: 3
 URL: https://github.com/ea-forecasting/flode
 BugReports: https://github.com/ea-forecasting/flode/issues
