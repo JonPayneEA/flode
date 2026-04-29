@@ -22,7 +22,9 @@ Imports:
     rstudioapi
 Remotes:
     JonPayneEA/reach.io,
-    JonPayneEA/reach.hydro
+    JonPayneEA/reach.hydro,
+    JonPayneEA/reach.utils,
+    JonPayneEA/reach.viz
 Suggests:
     testthat (>= 3.0.0),
     reach.ensemble,
