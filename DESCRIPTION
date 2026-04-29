@@ -20,6 +20,9 @@ Imports:
     reach.hydro,
     cli (>= 3.6.0),
     rstudioapi
+Remotes:
+    JonPayneEA/reach.io,
+    JonPayneEA/reach.hydro
 Suggests:
     testthat (>= 3.0.0),
     reach.ensemble,
