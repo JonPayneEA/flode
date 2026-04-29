@@ -160,7 +160,7 @@ flode_startup_message <- function() {
   right  <- if (n > half) pkg_vers[(half + 1):n] else character(0L)
   width  <- max(nchar(left)) + 2L
   rows   <- mapply(
-    function(l, r) formatC(l, width = width, flag = "-"),
+    function(l, r) paste0(formatC(l, width = width, flag = "-"), r),
     left,
     c(right, rep("", half - length(right)))
   )
