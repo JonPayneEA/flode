@@ -20,7 +20,7 @@ Imports:
     reach.hydro,
     JonPayneEA/reach.utils,
     JonPayneEA/reach.viz,
-    JonPayneEA/reach.basin
+    JonPayneEA/reach.basin,
     cli (>= 3.6.0),
     rstudioapi
 Remotes:
