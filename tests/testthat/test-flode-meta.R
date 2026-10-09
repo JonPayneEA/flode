@@ -4,12 +4,15 @@ test_that("flode_packages() returns the expected sub-packages", {
   pkgs <- flode_packages()
   expect_type(pkgs, "character")
   expect_true(all(c(
-    # "reach.utils",
+    "reach.utils",
     "reach.io",
-    "reach.hydro"
-    # "reach.ensemble",
-    # "reach.validate",
-    # "reach.viz"
+    "reach.hydro",
+    "reach.meteo",
+    "reach.network",
+    "reach.postproc",
+    "reach.rate",
+    "reach.basin",
+    "reach.viz"
   ) %in% pkgs))
 })
 

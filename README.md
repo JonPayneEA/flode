@@ -24,9 +24,14 @@ library(flode)
 | [`reach.utils`](https://github.com/JonPayneEA/reach.utils) | Datetime helpers, config loading, logging |
 | [`reach.io`](https://github.com/JonPayneEA/reach.io) | APIs, Gauge CSV, Parquet, netCDF read/write |
 | [`reach.hydro`](https://github.com/JonPayneEA/reach.hydro) | Flow statistics, unit conversion, flood peaks |
-| [`reach.ensemble`](https://github.com/JonPayneEA/reach.ensemble) | Quantile extraction, member weighting, exceedance probability |
-| [`reach.validate`](https://github.com/JonPayneEA/reach.validate) | NSE, KGE, PBIAS, RMSE validation metrics |
+| [`reach.meteo`](https://github.com/JonPayneEA/reach.meteo) | Meteorological data tools |
+| [`reach.network`](https://github.com/JonPayneEA/reach.network) | River network tools |
+| [`reach.postproc`](https://github.com/JonPayneEA/reach.postproc) | Post-processing of forecast outputs |
+| [`reach.rate`](https://github.com/JonPayneEA/reach.rate) | Rating curve tools |
+| [`reach.basin`](https://github.com/JonPayneEA/reach.basin) | Basin tools |
 | [`reach.viz`](https://github.com/JonPayneEA/reach.viz) | `theme_flode()`, flow series and ensemble fan plots |
+| [`reach.ensemble`](https://github.com/JonPayneEA/reach.ensemble) | Quantile extraction, member weighting, exceedance probability (optional) |
+| [`reach.validate`](https://github.com/JonPayneEA/reach.validate) | NSE, KGE, PBIAS, RMSE validation metrics (optional) |
 
 ---
 
@@ -42,12 +47,17 @@ remotes::install_github("JonPayneEA/flode")
 Sub-packages can also be installed individually:
 
 ```r
+remotes::install_github("JonPayneEA/reach.utils")
 remotes::install_github("JonPayneEA/reach.io")
 remotes::install_github("JonPayneEA/reach.hydro")
-remotes::install_github("JonPayneEA/reach.utils")
-remotes::install_github("JonPayneEA/reach.ensemble")
-remotes::install_github("JonPayneEA/reach.validate")
+remotes::install_github("JonPayneEA/reach.meteo")
+remotes::install_github("JonPayneEA/reach.network")
+remotes::install_github("JonPayneEA/reach.postproc")
+remotes::install_github("JonPayneEA/reach.rate")
+remotes::install_github("JonPayneEA/reach.basin")
 remotes::install_github("JonPayneEA/reach.viz")
+remotes::install_github("JonPayneEA/reach.ensemble")   # optional
+remotes::install_github("JonPayneEA/reach.validate")   # optional
 ```
 
 ---

@@ -5,8 +5,8 @@
 # Author: Forecasting and Warning Team
 # Created: 2026-02-01
 # Tier: 1
-# Dependencies: reach.io, reach.hydro, reach.ensemble, reach.validate,
-#               reach.viz, reach.utils, cli
+# Dependencies: reach.utils, reach.io, reach.hydro, reach.meteo, reach.network,
+#               reach.postproc, reach.rate, reach.basin, reach.viz, cli
 # =============================================================================
 
 #' @keywords internal
@@ -17,8 +17,12 @@
   "reach.utils",
   "reach.io",
   "reach.hydro",
-  "reach.viz",
-  "reach.basin"
+  "reach.meteo",
+  "reach.network",
+  "reach.postproc",
+  "reach.rate",
+  "reach.basin",
+  "reach.viz"
   # "reach.ensemble",
   # "reach.validate"
 )

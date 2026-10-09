@@ -9,6 +9,13 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+- `reach.meteo`, `reach.network`, `reach.postproc`, `reach.rate` and `reach.basin` added to the core sub-packages
+
+### Fixed
+- `Imports:` now uses plain package names; GitHub sources are in `Remotes:`
+- Startup message no longer drops the right-hand column of packages
+
 ---
 
 ## [0.2.0] - 2026-02-01
