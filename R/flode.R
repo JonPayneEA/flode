@@ -31,7 +31,9 @@
 
 # .onAttach runs when the user calls library(flode)
 .onAttach <- function(libname, pkgname) {
-  packageStartupMessage(flode_startup_message())
+  if (!isTRUE(getOption("flode.quiet", FALSE))) {
+    packageStartupMessage(flode_startup_message())
+  }
   attach_flode_packages()
 }
 

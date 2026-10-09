@@ -130,11 +130,14 @@ flowchart LR
 |---|---|
 | `flode_use_project()` | Scaffold a project with `reach.utils::create_project()` and a starter script for a chosen workflow |
 | `flode_workflows()` / `flode_workflow()` | List the example workflows, or print one (optionally as Mermaid) |
+| `flode_workflow_run()` / `flode_activities()` | Run a `pipeline.yml` through `reach.utils::run_pipeline()` (with `dry_run` checking), and list the activities the packages register |
 | `flode_install()` | Install or update flode and all sub-packages from GitHub (uses `pak`, falls back to `remotes`) |
 | `flode_sitrep()` | Compare installed versions with GitHub |
+| `flode_snapshot()` / `flode_restore()` | Record the exact commit of each package for a run, and reinstall it later |
+| `flode_doctor()` | Check R version, GitHub token, `pak`, installed packages and the project config |
 | `flode_versions()` | Show installed versions |
 | `flode_conflicts()` | Find function names shared between packages, or with base R |
-| `flode_options()` | Get or set shared settings (`tz`, `data_dir`, `config`) |
+| `flode_options()` | Get or set shared settings (`tz`, `data_dir`, `config`, `quiet`) |
 | `flode_attach()` / `flode_detach()` | Attach or detach the sub-packages |
 
 ```r

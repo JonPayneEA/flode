@@ -187,7 +187,8 @@ flode_detach <- function(packages = flode_packages()) {
 .flode_option_defaults <- list(
   tz       = "UTC",
   data_dir = "data",
-  config   = "config/pipeline.yml"
+  config   = "config/pipeline.yml",
+  quiet    = FALSE
 )
 
 #' Get or set flode options
@@ -203,6 +204,9 @@ flode_detach <- function(packages = flode_packages()) {
 #'   \item{`config`}{Path to the pipeline config read by
 #'     [reach.utils::load_config()]. Default `"config/pipeline.yml"`, the file
 #'     written by [flode_use_project()].}
+#'   \item{`quiet`}{If `TRUE`, `library(flode)` does not print the startup
+#'     banner. Warnings about missing packages are still shown. Default
+#'     `FALSE`.}
 #' }
 #'
 #' @param ... Named options to set. If none are given, the current options
@@ -237,4 +241,65 @@ flode_options <- function(...) {
     getOption(paste0("flode.", n), .flode_option_defaults[[n]])
   })
   stats::setNames(vals, names(.flode_option_defaults))
+}
+
+#' Check that the flode environment is set up
+#'
+#' Runs a set of checks: R version, GitHub token, `pak`, installed
+#' sub-packages, and the project config (if one exists). Each check is
+#' reported as `ok`, `warn` or `fail`.
+#'
+#' @return Invisibly returns a data frame with columns `check`, `status` and
+#'   `detail`.
+#' @seealso [flode_sitrep()], [flode_install()]
+#' @export
+flode_doctor <- function() {
+  results <- list()
+  add <- function(check, status, detail) {
+    results[[length(results) + 1L]] <<- data.frame(
+      check = check, status = status, detail = detail, stringsAsFactors = FALSE
+    )
+  }
+
+  rv <- getRversion()
+  if (rv >= "4.2.0") add("R version", "ok", as.character(rv))
+  else add("R version", "fail", paste(rv, "(flode needs R >= 4.2.0)"))
+
+  has_token <- nzchar(Sys.getenv("GITHUB_PAT")) || nzchar(Sys.getenv("GITHUB_TOKEN"))
+  if (has_token) add("GitHub token", "ok", "GITHUB_PAT or GITHUB_TOKEN is set")
+  else add("GitHub token", "warn", "not set; GitHub installs may hit rate limits (see usethis::create_github_token())")
+
+  if (.is_installed("pak")) add("pak", "ok", as.character(utils::packageVersion("pak")))
+  else add("pak", "warn", "not installed; flode_install() will fall back to remotes")
+
+  missing <- flode_packages()[!vapply(flode_packages(), .is_installed, logical(1L))]
+  if (length(missing) == 0L) add("Sub-packages", "ok", "all installed")
+  else add("Sub-packages", "fail", paste("not installed:", paste(missing, collapse = ", ")))
+
+  config <- flode_options()$config
+  if (!file.exists(config)) {
+    add("Pipeline config", "warn", paste0(config, " not found in ", getwd()))
+  } else if (!.is_installed("reach.utils")) {
+    add("Pipeline config", "warn", "found, but reach.utils is not installed to validate it")
+  } else {
+    problem <- tryCatch({
+      cfg <- reach.utils::load_config(config)
+      reach.utils::validate_config(cfg, "activities")
+      NULL
+    }, error = function(e) conditionMessage(e))
+    if (is.null(problem)) add("Pipeline config", "ok", config)
+    else add("Pipeline config", "fail", paste0(config, ": ", problem))
+  }
+
+  out <- do.call(rbind, results)
+  cli::cli_h2("Flode doctor")
+  for (i in seq_len(nrow(out))) {
+    line <- "{out$check[i]}: {out$detail[i]}"
+    switch(out$status[i],
+      ok   = cli::cli_alert_success(line),
+      warn = cli::cli_alert_warning(line),
+      cli::cli_alert_danger(line)
+    )
+  }
+  invisible(out)
 }
