@@ -22,16 +22,60 @@ library(flode)
 | Sub-package | Contents |
 |---|---|
 | [`reach.utils`](https://github.com/JonPayneEA/reach.utils) | Datetime helpers, config loading, logging |
-| [`reach.io`](https://github.com/JonPayneEA/reach.io) | APIs, Gauge CSV, Parquet, netCDF read/write |
-| [`reach.hydro`](https://github.com/JonPayneEA/reach.hydro) | Flow statistics, unit conversion, flood peaks |
-| [`reach.meteo`](https://github.com/JonPayneEA/reach.meteo) | Meteorological data tools |
+| [`reach.io`](https://github.com/JonPayneEA/reach.io) | Hydrometric data ingestion: APIs, Gauge CSV, Parquet, netCDF read/write |
+| [`reach.hydro`](https://github.com/JonPayneEA/reach.hydro) | Flow statistics, unit conversion, flood peaks; Snowpack and PDM rainfall-runoff modelling |
+| [`reach.meteo`](https://github.com/JonPayneEA/reach.meteo) | Meteorological data ingestion (radar, temperature, MOSES PE, NWP) |
 | [`reach.network`](https://github.com/JonPayneEA/reach.network) | River network tools |
-| [`reach.postproc`](https://github.com/JonPayneEA/reach.postproc) | Post-processing of forecast outputs |
-| [`reach.rate`](https://github.com/JonPayneEA/reach.rate) | Rating curve tools |
-| [`reach.basin`](https://github.com/JonPayneEA/reach.basin) | Basin tools |
+| [`reach.postproc`](https://github.com/JonPayneEA/reach.postproc) | Forecast post-processing, e.g. ARMA correction |
+| [`reach.rate`](https://github.com/JonPayneEA/reach.rate) | Stage-to-flow transformation (rating curves) |
+| [`reach.basin`](https://github.com/JonPayneEA/reach.basin) | Thiessen polygons and catchment-weighted rainfall |
 | [`reach.viz`](https://github.com/JonPayneEA/reach.viz) | `theme_flode()`, flow series and ensemble fan plots |
 
 *Planned: `reach.ensemble` (quantile extraction, member weighting, exceedance probability) and `reach.validate` (NSE, KGE, PBIAS, RMSE) will be added once released.*
+
+## Example workflow
+
+How the reaches packages fit together in a typical hydrological modelling run
+(dashed = planned, not yet released):
+
+```mermaid
+flowchart LR
+  subgraph Inputs
+    rain[Observed rainfall]
+    flow[Observed flow]
+    stage[Observed stage]
+    radar[Radar observations]
+    temp[Temperature]
+    pe[MOSES PE]
+    nwp[NWP]
+  end
+
+  subgraph Ingestion
+    io["<b>reach.io</b><br/>Hydrometric data ingestion"]
+    meteo["<b>reach.meteo</b><br/>Meteorological data ingestion"]
+  end
+
+  subgraph Transformations
+    rate["<b>reach.rate</b><br/>Stage to flow transformation"]
+    basin["<b>reach.basin</b><br/>Create Thiessen polygons,<br/>calculate weighted rainfall"]
+  end
+
+  hydro["<b>reach.hydro</b><br/>Snowpack then PDM"]
+  postproc["<b>reach.postproc</b><br/>ARMA correction"]
+  validate["<b>reach.validate</b><br/>Model performance"]
+
+  rain & flow & stage --> io
+  radar & temp & pe & nwp --> meteo
+  io --> rate
+  io --> basin
+  meteo --> basin
+  meteo --> hydro
+  rate --> hydro
+  basin --> hydro
+  hydro --> postproc --> validate
+
+  style validate stroke-dasharray: 5 5
+```
 
 ---
 
