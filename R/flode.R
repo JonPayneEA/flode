@@ -5,22 +5,28 @@
 # Author: Forecasting and Warning Team
 # Created: 2026-02-01
 # Tier: 1
-# Dependencies: reach.io, reach.hydro, reach.ensemble, reach.validate,
-#               reach.viz, reach.utils, cli
+# Dependencies: reach.utils, reach.io, reach.hydro, reach.meteo, reach.network,
+#               reach.postproc, reach.rate, reach.basin, reach.viz, cli
 # =============================================================================
 
 #' @keywords internal
 "_PACKAGE"
+
+# GitHub account that hosts flode and the reach sub-packages
+.flode_owner <- "JonPayneEA"
 
 # The sub-packages that flode loads, in dependency order
 .flode_packages <- c(
   "reach.utils",
   "reach.io",
   "reach.hydro",
-  "reach.viz",
-  "reach.basin"
-  # "reach.ensemble",
-  # "reach.validate"
+  "reach.meteo",
+  "reach.network",
+  "reach.postproc",
+  "reach.rate",
+  "reach.basin",
+  "reach.viz"
+  # Planned, not yet released: "reach.ensemble", "reach.validate"
 )
 
 # .onAttach runs when the user calls library(flode)
@@ -47,11 +53,12 @@ flode_attach <- function(packages = flode_packages(), quietly = TRUE) {
   not_installed <- packages[!vapply(packages, .is_installed, logical(1L))]
 
   if (length(not_installed) > 0L) {
+    hint <- .install_hint(not_installed)
     cli::cli_warn(c(
       "The following flode sub-packages are not installed and will be skipped:",
       "!" = paste(not_installed, collapse = ", "),
-      "i" = "Install with: {.run install.packages(c({paste0('\"', not_installed, '\"', collapse = ', ')}))}",
-      "i" = "Or from the team repo: {.run remotes::install_git('https://git.internal/forecasting/flode-pkgs')}"
+      "i" = "Install with: {.run {hint}}",
+      "i" = "Or install everything with: {.run flode::flode_install()}"
     ))
     packages <- setdiff(packages, not_installed)
   }
@@ -106,14 +113,22 @@ flode_versions <- function() {
 
 #' Update all flode sub-packages
 #'
-#' Convenience wrapper: re-installs all flode sub-packages from the team's
-#' internal Git repository. Requires `remotes`.
+#' Convenience wrapper that reinstalls flode and all sub-packages. By default
+#' this installs the latest versions from GitHub via [flode_install()]. Supply
+#' `repo` to reinstall from a team Git platform instead. Requires `remotes`
+#' in that case.
 #'
-#' @param repo Character. Base URL of the team Git platform.
-#' @param ... Additional arguments passed to [remotes::install_git()].
+#' @param repo Character or `NULL`. Base URL of a team Git platform, for
+#'   example `"https://git.internal/JonPayneEA"`. If `NULL` (default),
+#'   packages are installed from GitHub.
+#' @param ... Additional arguments passed to [flode_install()] (when `repo`
+#'   is `NULL`) or to [remotes::install_git()].
 #'
 #' @export
-flode_update <- function(repo = "https://git.internal/JonPayneEA", ...) {
+flode_update <- function(repo = NULL, ...) {
+  if (is.null(repo)) {
+    return(flode_install(upgrade = TRUE, ...))
+  }
   flode_check_pkg("remotes", "flode_update()")
   pkgs <- c("flode", flode_packages())
   cli::cli_h2("Updating flode packages")
@@ -184,9 +199,20 @@ flode_startup_message <- function() {
 
 flode_check_pkg <- function(pkg, context) {
   if (!.is_installed(pkg)) {
+    hint <- .install_hint(pkg)
     cli::cli_abort(c(
       "{.pkg {pkg}} is required for {.fn {context}}.",
-      "i" = "Install with: {.run install.packages('{pkg}')}"
+      "i" = "Install with: {.run {hint}}"
     ))
+  }
+}
+
+# Suggest the right install command: the reach packages live on GitHub
+.install_hint <- function(pkgs) {
+  if (all(startsWith(pkgs, "reach."))) {
+    refs <- paste0('"', .flode_owner, "/", pkgs, '"', collapse = ", ")
+    paste0("pak::pak(c(", refs, "))")
+  } else {
+    paste0("install.packages(c(", paste0('"', pkgs, '"', collapse = ", "), "))")
   }
 }

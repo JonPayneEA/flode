@@ -5,8 +5,9 @@ Authors@R:
     person("Forecasting and Warning Team", role = c("aut", "cre"),
            email = "forecasting@environment-agency.gov.uk")
 Description: Flode is the Forecasting and Warning team's meta-package.
-    Loading flode attaches all core sub-packages (reach.io, reach.hydro,
-    reach.ensemble, reach.validate, reach.viz, reach.utils) and prints a
+    Loading flode attaches all core sub-packages (reach.utils, reach.io,
+    reach.hydro, reach.meteo, reach.network, reach.postproc, reach.rate,
+    reach.basin, reach.viz) and prints a
     startup message confirming what was loaded. Modelled on the tidyverse
     meta-package pattern.
 License: MIT + file LICENSE
@@ -16,23 +17,33 @@ RoxygenNote: 7.3.3
 Depends:
     R (>= 4.2.0)
 Imports:
+    reach.utils,
     reach.io,
     reach.hydro,
-    reach.utils,
-    reach.viz,
+    reach.meteo,
+    reach.network,
+    reach.postproc,
+    reach.rate,
     reach.basin,
+    reach.viz,
     cli (>= 3.6.0),
-    rstudioapi
+    rstudioapi,
+    stats,
+    utils
 Remotes:
+    JonPayneEA/reach.utils,
     JonPayneEA/reach.io,
     JonPayneEA/reach.hydro,
-    JonPayneEA/reach.utils,
-    JonPayneEA/reach.viz,
-    JonPayneEA/reach.basin
+    JonPayneEA/reach.meteo,
+    JonPayneEA/reach.network,
+    JonPayneEA/reach.postproc,
+    JonPayneEA/reach.rate,
+    JonPayneEA/reach.basin,
+    JonPayneEA/reach.viz
 Suggests:
     testthat (>= 3.0.0),
-    reach.ensemble,
-    reach.validate
+    pak,
+    remotes
 Config/testthat/edition: 3
 URL: https://github.com/ea-forecasting/flode
 BugReports: https://github.com/ea-forecasting/flode/issues
