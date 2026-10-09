@@ -39,9 +39,7 @@ Remotes:
     JonPayneEA/reach.basin,
     JonPayneEA/reach.viz
 Suggests:
-    testthat (>= 3.0.0),
-    reach.ensemble,
-    reach.validate
+    testthat (>= 3.0.0)
 Config/testthat/edition: 3
 URL: https://github.com/ea-forecasting/flode
 BugReports: https://github.com/ea-forecasting/flode/issues

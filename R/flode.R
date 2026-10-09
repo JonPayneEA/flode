@@ -23,8 +23,7 @@
   "reach.rate",
   "reach.basin",
   "reach.viz"
-  # "reach.ensemble",
-  # "reach.validate"
+  # Planned, not yet released: "reach.ensemble", "reach.validate"
 )
 
 # .onAttach runs when the user calls library(flode)

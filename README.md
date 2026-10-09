@@ -30,8 +30,8 @@ library(flode)
 | [`reach.rate`](https://github.com/JonPayneEA/reach.rate) | Rating curve tools |
 | [`reach.basin`](https://github.com/JonPayneEA/reach.basin) | Basin tools |
 | [`reach.viz`](https://github.com/JonPayneEA/reach.viz) | `theme_flode()`, flow series and ensemble fan plots |
-| [`reach.ensemble`](https://github.com/JonPayneEA/reach.ensemble) | Quantile extraction, member weighting, exceedance probability (optional) |
-| [`reach.validate`](https://github.com/JonPayneEA/reach.validate) | NSE, KGE, PBIAS, RMSE validation metrics (optional) |
+
+*Planned: `reach.ensemble` (quantile extraction, member weighting, exceedance probability) and `reach.validate` (NSE, KGE, PBIAS, RMSE) will be added once released.*
 
 ---
 
@@ -56,8 +56,6 @@ remotes::install_github("JonPayneEA/reach.postproc")
 remotes::install_github("JonPayneEA/reach.rate")
 remotes::install_github("JonPayneEA/reach.basin")
 remotes::install_github("JonPayneEA/reach.viz")
-remotes::install_github("JonPayneEA/reach.ensemble")   # optional
-remotes::install_github("JonPayneEA/reach.validate")   # optional
 ```
 
 ---
@@ -67,9 +65,12 @@ remotes::install_github("JonPayneEA/reach.validate")   # optional
 ```r
 library(flode)
 #> ── Attaching reaches packages ──────────────────────── flode 0.2.0 ──
-#> ✔ reach.utils    0.1.0     ✔ reach.ensemble  0.1.0
-#> ✔ reach.io       0.1.0     ✔ reach.validate  0.1.0
+#> ✔ reach.utils    0.1.0     ✔ reach.rate      0.1.0
+#> ✔ reach.io       0.1.0     ✔ reach.basin     0.1.0
 #> ✔ reach.hydro    0.1.0     ✔ reach.viz       0.1.0
+#> ✔ reach.meteo    0.1.0
+#> ✔ reach.network  0.1.0
+#> ✔ reach.postproc 0.1.0
 ```
 
 ### Check installed versions
