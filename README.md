@@ -130,16 +130,95 @@ flowchart LR
 |---|---|
 | `flode_use_project()` | Scaffold a project with `reach.utils::create_project()` and a starter script for a chosen workflow |
 | `flode_workflows()` / `flode_workflow()` | List the example workflows, or print one (optionally as Mermaid) |
+| `flode_workflow_run()` / `flode_activities()` | Run a `pipeline.yml` through `reach.utils::run_pipeline()` (with `dry_run` checking), and list the activities the packages register |
 | `flode_install()` | Install or update flode and all sub-packages from GitHub (uses `pak`, falls back to `remotes`) |
 | `flode_sitrep()` | Compare installed versions with GitHub |
+| `flode_snapshot()` / `flode_restore()` | Record the exact commit of each package for a run, and reinstall it later |
+| `flode_doctor()` | Check R version, GitHub token, `pak`, installed packages and the project config |
 | `flode_versions()` | Show installed versions |
 | `flode_conflicts()` | Find function names shared between packages, or with base R |
-| `flode_options()` | Get or set shared settings (`tz`, `data_dir`, `config`) |
+| `flode_options()` | Get or set shared settings (`tz`, `data_dir`, `config`, `quiet`) |
 | `flode_attach()` / `flode_detach()` | Attach or detach the sub-packages |
 
+### Starting a project with `flode_use_project()`
+
+`flode_use_project()` builds the project folders with
+`reach.utils::create_project()` and, if you pick a workflow, adds a starter
+script `R/00_workflow.R` listing that workflow's steps as comments to fill in.
+Choose the workflow with the `workflow` argument. See all options with
+`flode_workflows()`.
+
 ```r
+# Real-time forecasting run (the default)
+flode_use_project("~/projects/river-forecast")
 flode_use_project("~/projects/river-forecast", workflow = "realtime")
+
+# Catchment average rainfall
+flode_use_project("~/projects/rainfall", workflow = "catchment_rainfall")
+
+# Stage to flow conversion
+flode_use_project("~/projects/rating", workflow = "rating_conversion")
+
+# Quality control of observed series
+flode_use_project("~/projects/qc", workflow = "data_qc")
+
+# Flood peaks and frequency
+flode_use_project("~/projects/peaks", workflow = "flood_frequency")
+
+# Forecast correction and validation
+flode_use_project("~/projects/correction", workflow = "forecast_correction")
+
+# Folders and config only, with no starter script
+flode_use_project("~/projects/blank", workflow = NULL)
+
+# Add an author and skip the README
+flode_use_project("~/projects/river-forecast", author = "Forecasting and Warning Team",
+                  readme = FALSE)
 ```
+
+Each project gets these folders from `reach.utils`:
+
+```
+river-forecast/
+├── R/
+│   └── 00_workflow.R      # starter script for the chosen workflow
+├── config/
+│   └── pipeline.yml       # read by reach.utils::load_config()
+├── data/
+│   ├── raw/
+│   └── processed/
+├── outputs/
+├── logs/
+├── tests/testthat/
+├── .gitignore
+└── README.qmd             # unless readme = FALSE
+```
+
+For example, `workflow = "data_qc"` writes this `R/00_workflow.R`:
+
+```r
+# Workflow: Quality control of observed series
+# Check observed series before they are used for modelling.
+# See flode::flode_workflow() for the full list of steps.
+
+library(flode)
+
+# Project settings live in config/pipeline.yml
+cfg <- reach.utils::load_config("config/pipeline.yml")
+
+# 1. reach.io: Ingest observed flow
+# ...
+
+# 2. reach.utils: Run QC checks (gaps, flatlines, bounds, rate of change)
+# ...
+
+# 3. reach.hydro: Calculate flow statistics on the cleaned series
+# ...
+```
+
+Once the steps are filled in, run the project's `config/pipeline.yml` with
+`flode_workflow_run()`. Use `dry_run = TRUE` first to check every activity is
+registered.
 
 ---
 

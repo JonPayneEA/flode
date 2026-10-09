@@ -1,0 +1,26 @@
+url: ~
+
+reference:
+  - title: Attach and inspect
+    contents:
+      - flode_attach
+      - flode_detach
+      - flode_packages
+      - flode_versions
+      - flode_conflicts
+  - title: Workflows
+    contents:
+      - flode_workflows
+      - flode_workflow
+      - flode_workflow_run
+      - flode_activities
+      - flode_use_project
+  - title: Install and reproduce
+    contents:
+      - flode_install
+      - flode_update
+      - flode_sitrep
+      - flode_snapshot
+      - flode_restore
+      - flode_doctor
+      - flode_options
