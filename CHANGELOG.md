@@ -11,7 +11,6 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 - `reach.meteo`, `reach.network`, `reach.postproc`, `reach.rate` and `reach.basin` added to the core sub-packages
-
 - `flode_use_project()` scaffolds a project via `reach.utils::create_project()` with a starter workflow script
 - `flode_workflows()` and `flode_workflow()` list and print example workflows (console or Mermaid)
 - `flode_install()` installs flode and sub-packages from GitHub via `pak`
