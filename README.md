@@ -33,10 +33,12 @@ library(flode)
 
 *Planned: `reach.ensemble` (quantile extraction, member weighting, exceedance probability) and `reach.validate` (NSE, KGE, PBIAS, RMSE) will be added once released.*
 
-## Example workflow
+## Example workflows
 
-How the reaches packages fit together in a typical hydrological modelling run
-(dashed = planned, not yet released):
+How the reaches packages fit together. Dashed boxes are planned, not yet released.
+List them in R with `flode_workflows()` and print one with `flode_workflow("name")`.
+
+### Real-time forecasting run (`realtime`)
 
 ```mermaid
 flowchart LR
@@ -77,6 +79,68 @@ flowchart LR
   style validate stroke-dasharray: 5 5
 ```
 
+### Catchment average rainfall (`catchment_rainfall`)
+
+```mermaid
+flowchart LR
+  S1["<b>reach.io</b><br/>Ingest rain gauge observations"]
+  S2["<b>reach.meteo</b><br/>Ingest radar observations"]
+  S3["<b>reach.basin</b><br/>Create Thiessen polygons"]
+  S4["<b>reach.basin</b><br/>Calculate weighted rainfall"]
+  S1 --> S3
+  S2 --> S3
+  S3 --> S4
+```
+
+### Stage to flow conversion (`rating_conversion`)
+
+```mermaid
+flowchart LR
+  S1["<b>reach.io</b><br/>Ingest observed stage"] --> S2["<b>reach.rate</b><br/>Transform stage to flow"] --> S3["<b>reach.hydro</b><br/>Calculate flow statistics"]
+```
+
+### Quality control of observed series (`data_qc`)
+
+```mermaid
+flowchart LR
+  S1["<b>reach.io</b><br/>Ingest observed flow"] --> S2["<b>reach.utils</b><br/>QC checks: gaps, flatlines,<br/>bounds, rate of change"] --> S3["<b>reach.hydro</b><br/>Flow statistics on cleaned series"]
+```
+
+### Flood peaks and frequency (`flood_frequency`)
+
+```mermaid
+flowchart LR
+  S1["<b>reach.io</b><br/>Ingest observed flow"] --> S2["<b>reach.utils</b><br/>Assign water years,<br/>check completeness"] --> S3["<b>reach.hydro</b><br/>Extract flood peaks,<br/>flow statistics"]
+```
+
+### Forecast correction and validation (`forecast_correction`)
+
+```mermaid
+flowchart LR
+  S1["<b>reach.hydro</b><br/>Snowpack then PDM"] --> S3["<b>reach.postproc</b><br/>ARMA correction"] --> S4["<b>reach.validate</b><br/>Model performance"]
+  S2["<b>reach.io</b><br/>Ingest observed flow"] --> S3
+  style S4 stroke-dasharray: 5 5
+```
+
+---
+
+## Helper functions
+
+| Function | What it does |
+|---|---|
+| `flode_use_project()` | Scaffold a project with `reach.utils::create_project()` and a starter script for a chosen workflow |
+| `flode_workflows()` / `flode_workflow()` | List the example workflows, or print one (optionally as Mermaid) |
+| `flode_install()` | Install or update flode and all sub-packages from GitHub (uses `pak`, falls back to `remotes`) |
+| `flode_sitrep()` | Compare installed versions with GitHub |
+| `flode_versions()` | Show installed versions |
+| `flode_conflicts()` | Find function names shared between packages, or with base R |
+| `flode_options()` | Get or set shared settings (`tz`, `data_dir`, `config`) |
+| `flode_attach()` / `flode_detach()` | Attach or detach the sub-packages |
+
+```r
+flode_use_project("~/projects/river-forecast", workflow = "realtime")
+```
+
 ---
 
 ## Installation
@@ -86,6 +150,9 @@ Install `flode` and all sub-packages from GitHub:
 ```r
 # install.packages("remotes")
 remotes::install_github("JonPayneEA/flode")
+
+# or, with pak
+pak::pak("JonPayneEA/flode")
 ```
 
 Sub-packages can also be installed individually:
